@@ -1,18 +1,29 @@
 import time
+import random
 
-def bubbleSort(alist):
-    a = 0
-    for passnum in range(len(alist)-1,0,-1):
-        for i in range(passnum):
-            if alist[i]>alist[i+1]:
-                a = a + 1
-                temp = alist[i]
-                alist[i] = alist[i+1]
-                alist[i+1] = temp 
-    print(a)
-alist = [54,26,93,17,77,31,44,110,55,20]
+i = 0
+
+k = int(input("Dizinin boyutunu giriniz: "))
+dizi = []
+
+while(i < k):
+    b = random.randint(1, 10000)
+    dizi.append(b)
+    i = i + 1
+
 start = time.time()
-bubbleSort(alist)
+
+a = 0
+for passnum in range(len(dizi)-1,0,-1):
+    for i in range(passnum):
+        if dizi[i]>dizi[i+1]:
+            a = a + 1
+            temp = dizi[i]
+            dizi[i] = dizi[i+1]
+            dizi[i+1] = temp 
+print(a)
+
+
 finish = time.time()
 execution_time = finish - start
-print(alist,"Execution time: ",execution_time)
+print(dizi,"Execution time: ",execution_time)
