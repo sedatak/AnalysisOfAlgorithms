@@ -14,14 +14,17 @@ while(i < k):
 start = time.time()
 
 a = 0
+b = 0
 for passnum in range(len(dizi)-1,0,-1):
     for i in range(passnum):
+        b = b + 1
         if dizi[i]>dizi[i+1]:
             a = a + 1
             temp = dizi[i]
             dizi[i] = dizi[i+1]
-            dizi[i+1] = temp 
-print(a)
+            dizi[i+1] = temp
+print("Yapılan karşılaştırma sayısı:", b)
+print("Yapılan yer değiştirme sayısı:", a)
 
 
 finish = time.time()
