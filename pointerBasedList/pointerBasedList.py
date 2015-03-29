@@ -6,7 +6,7 @@ class Node:
 
 class myPointerBasedList:
     
-   def __init__(self):              #baslangıcta head ve tail degerleri esittir
+   def __init__(self):              #baslangicta head ve tail degerleri esittir
       self.head = None
       self.tail = None
 
