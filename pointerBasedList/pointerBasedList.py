@@ -1,0 +1,58 @@
+# -*- coding: cp1254 -*-
+class Node:
+   def __init__(self, data):        #her düðüm oluþturulurken bir deðer ve sonraki düðüme iþaretçi ile birlikte oluþturulur.
+      self.data = data
+      self.next = None
+
+class myPointerBasedList:
+    
+   def __init__(self):              #baþlangýçta head ve tail deðerleri eþittir
+      self.head = None
+      self.tail = None
+
+   def addNode( self, data ):
+      new_node = Node(data)
+
+      if self.head == None:         #head boþsa yeni eklenen deðeri head yap
+         self.head = new_node
+
+      if self.tail != None:         #tail boþsa yeni eklenen deðeri tail yap
+         self.tail.next = new_node
+
+      self.tail = new_node          #yeni eklenen deðeri tail yap
+
+   def removeNode(self, index):
+      prev = None
+      node = self.head
+      i = 0
+
+      while ( node != None ) and ( i < index ):     # node'u prev'e al ve node'a bir sonrakini ata
+         prev = node
+         node = node.next
+         i += 1
+
+      if prev == None:              #prev boþsa head'i çýkar
+          self.head = node.next
+      else:
+         prev.next = node.next
+
+   def printList(self):
+      node = self.head
+
+      while node != None:           #node boþ olana kadar bir sonraki deðeri yazdýr
+         print node.data
+         node = node.next
+
+
+pointerBasedList = myPointerBasedList()
+
+pointerBasedList.addNode(1254)
+pointerBasedList.addNode(5421)
+pointerBasedList.addNode(8965)
+pointerBasedList.addNode(5487)
+
+pointerBasedList.printList()
+
+pointerBasedList.removeNode(2)
+
+pointerBasedList.printList()
