@@ -1,25 +1,25 @@
 # -*- coding: cp1254 -*-
 class Node:
-   def __init__(self, data):        #her düğüm oluşturulurken bir değer ve sonraki düğüme işaretçi ile birlikte oluşturulur.
+   def __init__(self, data):        #her dugum olusturulurken bir deger ve sonraki dugume isaretci ile birlikte olusturulur
       self.data = data
       self.next = None
 
 class myPointerBasedList:
     
-   def __init__(self):              #başlangıçta head ve tail değerleri eşittir
+   def __init__(self):              #baslangıcta head ve tail degerleri esittir
       self.head = None
       self.tail = None
 
    def addNode( self, data ):
       new_node = Node(data)
 
-      if self.head == None:         #head boşsa yeni eklenen değeri head yap
+      if self.head == None:         #head bossa yeni eklenen degeri head yap
          self.head = new_node
 
-      if self.tail != None:         #tail boşsa yeni eklenen değeri tail yap
+      if self.tail != None:         #tail bossa yeni eklenen degeri tail yap
          self.tail.next = new_node
 
-      self.tail = new_node          #yeni eklenen değeri tail yap
+      self.tail = new_node          #yeni eklenen degeri tail yap
 
    def removeNode(self, index):
       prev = None
@@ -31,7 +31,7 @@ class myPointerBasedList:
          node = node.next
          i += 1
 
-      if prev == None:              #prev boşsa head'i çıkar
+      if prev == None:              #prev bossa head'i cikar
           self.head = node.next
       else:
          prev.next = node.next
@@ -39,7 +39,7 @@ class myPointerBasedList:
    def printList(self):
       node = self.head
 
-      while node != None:           #node boş olana kadar bir sonraki değeri yazdır
+      while node != None:           #node boş olana kadar bir sonraki degeri yazdir
          print node.data
          node = node.next
 
