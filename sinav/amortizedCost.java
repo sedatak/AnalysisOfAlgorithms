@@ -1,40 +1,32 @@
-package stackamortizedcost;
+package amortizedcost;
 
-import java.util.Random;
-import java.util.Stack;
+public class AmortizedCost {
 
-public class StackAmortizedCost {
+	static int newSize = 1000;
+	static int[] dizi = new int[newSize];
+	static int i = 0;
 
-	static void showpush(Stack st, int a) {
+	public static void main(String[] args) {
 
-		st.push(new Integer(a));
+		for (i = 0; i < 1001; i++) {
+			if (i >= dizi.length) {
+				System.out.println("dizi resize edilmeden önce boyutu :"+i);
+				int newSize = i * 2;
+				int yeniDizi[] = new int[newSize];
 
-		System.out.println("push(" + a + ")");
-		System.out.println("stack: " + st);
-	}
-
-	static void showpop(Stack st) {
-
-		System.out.print("pop -> ");
-		Integer a = (Integer) st.pop();
-
-		System.out.println(a);
-		System.out.println("stack: " + st);
-	}
-
-	public static void main(String args[]) {
-
-		Random rnd = new Random();
-		Stack st = new Stack();
-		int a;
-
-		System.out.println("stack: " + st);
-
-		for (int i = 0; i < 10; i++) {
-			a = rnd.nextInt(1000);
-			showpush(st, a);
+				for (int i = 0; i < dizi.length; i++) {
+					yeniDizi[i] = dizi[i];
+				}
+				dizi = new int[newSize];
+				
+				for (int i = 0; i < yeniDizi.length; i++) {
+					dizi[i] = yeniDizi[i];
+				}
+			}
+			dizi[i] = i;
+			System.out.println("dizinin"+(i+1)+". elmani:"+dizi[i]);
 		}
 
-		showpop(st);
+		System.out.println("dizinin þimdikiboyutu : "+dizi.length);
 	}
 }
